@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAPSO | Agence de Croissance Next-Gen</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg: #050505;
@@ -26,8 +24,20 @@
         }
 
         #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.3; }
-
         .navbar { backdrop-filter: blur(15px); background: rgba(5,5,5,0.8); border-bottom: 1px solid var(--border); padding: 15px 0; z-index: 1000; }
+
+        /* --- FIX MENU MOBILE (ZID HADI) --- */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: rgba(5, 5, 5, 0.98);
+                padding: 20px;
+                border-radius: 15px;
+                margin-top: 15px;
+                border: 1px solid var(--border);
+            }
+            .nav-link { padding: 10px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .btn-premium { width: 100%; text-align: center; margin-top: 10px; }
+        }
 
         /* Hero */
         .hero-section { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
@@ -80,17 +90,17 @@
 
         /* Form Styling */
         .glass-input { 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid var(--border); 
-            color: #fff !important; 
-            border-radius: 12px; 
-            padding: 15px;
+             background: rgba(255,255,255,0.05); 
+             border: 1px solid var(--border); 
+             color: #fff !important; 
+             border-radius: 12px; 
+             padding: 15px;
             transition: 0.3s;
         }
         .glass-input:focus { 
-            background: rgba(255,255,255,0.1); 
-            border-color: var(--accent); 
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+             background: rgba(255,255,255,0.1); 
+             border-color: var(--accent); 
+             box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
         }
         select.glass-input option { background: #0a0a0a; color: #fff; }
 
@@ -101,35 +111,34 @@
     <link rel="shortcut icon" href="favipic.png">
 </head>
 <body>
-
     <canvas id="bg-canvas"></canvas>
-
+    
     <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold text-white fs-3" href="index.html">MAPSO<span style="color:var(--accent)">.</span></a>
-        
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="fa-solid fa-bars text-white"></span>
-        </button>
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-3" href="index.html">MAPSO<span style="color:var(--accent)">.</span></a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="fa-solid fa-bars text-white fs-2"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3" href="#navMenu">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white-50 px-3" href="services.html">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white-50 px-3" href="#contact">Contact</a>
-                </li>
-            </ul>
-            <div class="d-flex">
-                <a href="tel:212643587891" class="btn btn-premium">Parler à un Expert</a>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white px-3" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 px-3" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 px-3" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="tel:212643587891" class="btn btn-premium">Parler à un Expert</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <section class="hero-section text-center">
         <div class="container">
@@ -235,8 +244,7 @@
                                     <option value="Social Media Management">Social Media Management</option>
                                     <option value="Content Creation">Content Creation</option>
                                     <option value="Paid Advertising">Paid Advertising</option>
-                                    <option value="Google Maps Reviews">Google Maps Reviews</option>
-                                    <option value="Lead Gen & WhatsApp">Lead Gen & WhatsApp</option>
+                                    <option value="Google Maps Reviews">Google Maps Reviews</option>                                    <option value="Lead Gen & WhatsApp">Lead Gen & WhatsApp</option>
                                     <option value="Branding & Design">Branding & Design</option>
                                     <option value="Influencer Marketing">Influencer Marketing</option>
                                     <option value="Funnels & Landing">Funnels & Landing Pages</option>
@@ -262,12 +270,12 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         $(document).ready(function() {
             AOS.init({ duration: 800, once: true });
 
-            // BACKGROUND CANVAS ANIMATION
             const canvas = document.getElementById('bg-canvas');
             const ctx = canvas.getContext('2d');
             let points = [];
@@ -285,22 +293,15 @@
             }
             draw();
 
-            // WHATSAPP FORM LOGIC
             $('#waForm').on('submit', function(e) {
                 e.preventDefault();
-                
-                // --- METS TON NUMERO ICI ---
                 const phone = "212600000000"; 
-                
                 const name = $('#wa_name').val();
                 const company = $('#wa_company').val();
                 const service = $('#wa_service').val();
                 const msg = $('#wa_message').val();
-
                 const text = `*NOUVELLE DEMANDE MAPSO*%0A%0A*Nom:* ${name}%0A*Entreprise:* ${company}%0A*Service:* ${service}%0A*Message:* ${msg}`;
-                
                 const waUrl = `https://wa.me/${phone}?text=${text}`;
-                
                 window.open(waUrl, '_blank');
                 $(this).html('<h2 class="text-accent py-5">🚀 Redirection WhatsApp en cours...</h2>');
             });
