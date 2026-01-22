@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | MAPSO</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #00e5ff;
+            --black-puzzle: #0a0a0a;
+            --gray-puzzle: #141414;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar { 
+            backdrop-filter: blur(15px); 
+            background: rgba(5,5,5,0.85); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            padding: 18px 0; 
+            transition: 0.3s;
+        }
+        
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent) !important;
+        }
+
+        .btn-audit {
+            background: #fff;
+            color: #000 !important;
+            border-radius: 100px;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-audit:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* --- PUZZLE SYSTEM --- */
+        .puzzle-row { --bs-gutter-x: 0; }
+        
+        .puzzle-item {
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            padding: 60px 45px;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 0.1px solid rgba(255,255,255,0.02);
+        }
+
+        .puzzle-content { position: relative; z-index: 2; width: 100%; }
+
+        .category-tag {
+            font-size: 10px;
+            letter-spacing: 3px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .puzzle-title {
+            font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .puzzle-title span { font-weight: 300; color: rgba(255,255,255,0.6); }
+
+        .puzzle-line { width: 45px; height: 3px; background: var(--accent); margin-bottom: 25px; }
+
+        .puzzle-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            max-width: 90%;
+        }
+
+        /* Alwan l-Puzzles */
+        .bg-p-1 { background-color: #080808; }
+        .bg-p-2 { background-color: var(--accent); color: #000; }
+        .bg-p-2 .puzzle-line { background: #000; }
+        .bg-p-2 .puzzle-text, .bg-p-2 .puzzle-title span { color: rgba(0,0,0,0.7); }
+        .bg-p-3 { background-color: #121212; }
+        .bg-p-4 { background-color: #ffffff; color: #000; }
+        .bg-p-4 .puzzle-line { background: var(--accent); }
+        .bg-p-4 .puzzle-text, .bg-p-4 .puzzle-title span { color: rgba(0,0,0,0.6); }
+
+        .puzzle-item:hover { transform: scale(1.01); z-index: 5; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+
+        @media (max-width: 991px) {
+            .navbar-collapse { background: #080808; padding: 20px; border-radius: 15px; margin-top: 10px; }
+            .puzzle-item { min-height: 380px; padding: 40px 25px; }
+            .puzzle-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-3" href="index.html">MAPSO<span style="color:var(--accent)">.</span></a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="fa-solid fa-bars text-white"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item"><a class="nav-link text-white-50 px-3" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white px-3" href="services.html">Services</a></li>
+                </ul>
+                <div class="text-center">
+                    <a href="tel:212643587891" class="btn-audit">Parler à un Expert</a>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0" style="padding-top: 80px;">
+        <div class="row puzzle-row">
+            
+            <div class="col-lg-6 col-md-12 puzzle-item bg-p-1" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag" style="color:var(--accent)">Design</span>
+                    <h2 class="puzzle-title">Sites <span>Web & UX</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Conception de plateformes digitales élégantes, fluides et optimisées pour la conversion.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 puzzle-item bg-p-2" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag">Community</span>
+                    <h2 class="puzzle-title">Social <span>Media</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Gestion stratégique de vos réseaux sociaux pour bâtir une communauté engagée.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 puzzle-item bg-p-3" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag text-accent" style="color:var(--accent)">Growth</span>
+                    <h2 class="puzzle-title">Paid <span>Advertising</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Campagnes Meta & TikTok Ads focalisées sur le ROI et la croissance rapide.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 puzzle-item bg-p-4" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag">Trust</span>
+                    <h2 class="puzzle-title">Google <span>Reviews</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Amélioration de votre e-réputation et domination du classement Google Maps.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 puzzle-item bg-p-1" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag text-accent" style="color:var(--accent)">Visuals</span>
+                    <h2 class="puzzle-title">Content <span>Creation</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Production de Reels, Shorts et contenus vidéos haute qualité.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 puzzle-item bg-p-2" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag">Conversion</span>
+                    <h2 class="puzzle-title">WhatsApp <span>Sales</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Stratégies de vente directe via WhatsApp pour fermer vos deals plus rapidement.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 puzzle-item bg-p-3" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag" style="color:var(--accent)">Identity</span>
+                    <h2 class="puzzle-title" style="font-size: 2.1rem;">Brand <span>Design</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Identité visuelle premium pour vous démarquer.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 puzzle-item bg-p-1" data-aos="fade-up">
+                <div class="puzzle-content">
+                    <span class="category-tag" style="color:var(--accent)">Network</span>
+                    <h2 class="puzzle-title" style="font-size: 2.1rem;">Influencer <span>Ads</span></h2>
+                    <div class="puzzle-line"></div>
+                    <p class="puzzle-text">Connexion stratégique avec les créateurs de contenu.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-secondary small" style="background:#050505">
+        © 2026 MAPSO. Agence de Croissance Digitale.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

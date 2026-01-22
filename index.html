@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPSO | Agence de Croissance Next-Gen</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #00e5ff;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.3; }
+
+        .navbar { backdrop-filter: blur(15px); background: rgba(5,5,5,0.8); border-bottom: 1px solid var(--border); padding: 15px 0; z-index: 1000; }
+
+        /* Hero */
+        .hero-section { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* Services Grid */
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            background: rgba(0, 229, 255, 0.02);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.05);
+        }
+        .icon-box {
+            width: 50px; height: 50px;
+            background: rgba(0, 229, 255, 0.1);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        .badge-hot {
+            position: absolute; top: 20px; right: 20px;
+            font-size: 10px; background: var(--accent); color: #000;
+            padding: 4px 10px; border-radius: 50px; font-weight: 800;
+        }
+
+        /* Buttons */
+        .btn-premium {
+            background: #fff; color: #000; border-radius: 50px;
+            padding: 15px 35px; font-weight: 700; border: none; transition: 0.3s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-premium:hover { background: var(--accent); transform: scale(1.05); box-shadow: 0 0 25px rgba(0,229,255,0.4); color: #000; }
+
+        /* Form Styling */
+        .glass-input { 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid var(--border); 
+            color: #fff !important; 
+            border-radius: 12px; 
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .glass-input:focus { 
+            background: rgba(255,255,255,0.1); 
+            border-color: var(--accent); 
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+        }
+        select.glass-input option { background: #0a0a0a; color: #fff; }
+
+        footer { border-top: 1px solid var(--border); padding: 40px 0; color: #555; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-white fs-3" href="index.html">MAPSO<span style="color:var(--accent)">.</span></a>
+        
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="fa-solid fa-bars text-white"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3" href="#navMenu">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 px-3" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 px-3" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="tel:212643587891" class="btn btn-premium">Parler à un Expert</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="gradient-text mb-4">ARCHITECTES DE VOTRE<br>CROISSANCE DIGITALE</h1>
+            <p class="text-secondary mx-auto mb-5" style="max-width: 650px;" data-aos="fade-up" data-aos-delay="200">
+                Nous concevons des stratégies digitales sur-mesure pour générer des leads, des ventes et une croissance durable.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn btn-premium">Consulting</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2 class="display-5 fw-bold">Comment nous</h2>
+                <p class="text-secondary">Une approche structurée pour garantir des résultats mesurables, étape par étape.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+                        <h4>Social Media Management</h4>
+                        <p class="small text-secondary">Gestion totale de votre image et de votre communauté.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-solid fa-camera-retro"></i></div>
+                        <h4>Content Creation</h4>
+                        <p class="small text-secondary">Production de Reels, Shorts et visuels haute performance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <span class="badge-hot">ROI+</span>
+                        <div class="icon-box"><i class="fa-solid fa-bullseye"></i></div>
+                        <h4>Paid Advertising</h4>
+                        <p class="small text-secondary">Campagnes Meta & TikTok Ads optimisées pour la vente.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <span class="badge-hot">HOT</span>
+                        <div class="icon-box"><i class="fa-solid fa-star"></i></div>
+                        <h4>Google Maps Reviews</h4>
+                        <p class="small text-secondary">Boostez votre e-réputation et dominez le classement local.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                        <h4>Lead Gen & WhatsApp</h4>
+                        <p class="small text-secondary">Acquisition de prospects et vente via WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-solid fa-gem"></i></div>
+                        <h4>Branding & Design</h4>
+                        <p class="small text-secondary">Positionnement premium pour devenir le leader de votre niche.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+                        <h4>Influencer Marketing</h4>
+                        <p class="small text-secondary">Connexion avec les créateurs stratégiques pour votre marque.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="service-card">
+                        <div class="icon-box"><i class="fa-solid fa-filter"></i></div>
+                        <h4>Funnels & Landing</h4>
+                        <p class="small text-secondary">Tunnels de vente optimisés pour la conversion directe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="service-card p-5" data-aos="zoom-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-5 mb-lg-0 text-center text-lg-start">
+                        <h2 class="display-5 fw-bold mb-3">Prêt pour l'audit ?</h2>
+                        <p class="text-secondary mb-0">On analyse votre business gratuitement et on vous donne la roadmap sur WhatsApp.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <form id="waForm" class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" id="wa_name" class="form-control glass-input" placeholder="Votre Nom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="wa_company" class="form-control glass-input" placeholder="Entreprise" required>
+                            </div>
+                            <div class="col-12">
+                                <select id="wa_service" class="form-control glass-input" required>
+                                    <option value="" disabled selected>Chosir un service...</option>
+                                    <option value="Social Media Management">Social Media Management</option>
+                                    <option value="Content Creation">Content Creation</option>
+                                    <option value="Paid Advertising">Paid Advertising</option>
+                                    <option value="Google Maps Reviews">Google Maps Reviews</option>
+                                    <option value="Lead Gen & WhatsApp">Lead Gen & WhatsApp</option>
+                                    <option value="Branding & Design">Branding & Design</option>
+                                    <option value="Influencer Marketing">Influencer Marketing</option>
+                                    <option value="Funnels & Landing">Funnels & Landing Pages</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea id="wa_message" class="form-control glass-input" rows="3" placeholder="Parlez-nous de votre projet..."></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-premium w-100">Envoyer sur WhatsApp <i class="fa-brands fa-whatsapp ms-2"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>© 2026 MAPSO. Agence de Croissance Digitale.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        $(document).ready(function() {
+            AOS.init({ duration: 800, once: true });
+
+            // BACKGROUND CANVAS ANIMATION
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let points = [];
+            function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+            window.onresize = resize; resize();
+            for(let i=0; i<80; i++) points.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2, vx: Math.random()-0.5, vy: Math.random()-0.5});
+            function draw() {
+                ctx.clearRect(0,0,canvas.width, canvas.height); ctx.fillStyle = '#00e5ff';
+                points.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if(p.x<0 || p.x>canvas.width) p.vx *= -1; if(p.y<0 || p.y>canvas.height) p.vy *= -1;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+
+            // WHATSAPP FORM LOGIC
+            $('#waForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                // --- METS TON NUMERO ICI ---
+                const phone = "212600000000"; 
+                
+                const name = $('#wa_name').val();
+                const company = $('#wa_company').val();
+                const service = $('#wa_service').val();
+                const msg = $('#wa_message').val();
+
+                const text = `*NOUVELLE DEMANDE MAPSO*%0A%0A*Nom:* ${name}%0A*Entreprise:* ${company}%0A*Service:* ${service}%0A*Message:* ${msg}`;
+                
+                const waUrl = `https://wa.me/${phone}?text=${text}`;
+                
+                window.open(waUrl, '_blank');
+                $(this).html('<h2 class="text-accent py-5">🚀 Redirection WhatsApp en cours...</h2>');
+            });
+        });
+    </script>
+</body>
+</html>
