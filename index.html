@@ -89,19 +89,25 @@
         .btn-premium:hover { background: var(--accent); transform: scale(1.05); box-shadow: 0 0 25px rgba(0,229,255,0.4); color: #000; }
 
         /* Form Styling */
-        .glass-input { 
-             background: rgba(255,255,255,0.05); 
-             border: 1px solid var(--border); 
-             color: #fff !important; 
-             border-radius: 12px; 
-             padding: 15px;
-            transition: 0.3s;
-        }
-        .glass-input:focus { 
-             background: rgba(255,255,255,0.1); 
-             border-color: var(--accent); 
-             box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
-        }
+        .glass-input {
+    background: rgba(255, 255, 255, 0.02) !important; /* N9osna l-max, ghir khyal khfif bzaf */
+    border: 1px solid rgba(255, 255, 255, 0.04) !important; /* Border r9iiiii9 may-banch dghya */
+    color: #ffffff !important;
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.15) !important; /* Ktiba khfiiiifa bzaf (Trace) */
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(0, 229, 255, 0.5) !important; /* Glow d l-accent khfif bzaf */
+    box-shadow: none !important;
+    outline: none;
+}
         select.glass-input option { background: #0a0a0a; color: #fff; }
 
         footer { border-top: 1px solid var(--border); padding: 40px 0; color: #555; font-size: 14px; }
